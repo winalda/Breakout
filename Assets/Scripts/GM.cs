@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
@@ -55,7 +56,7 @@ public class GM : MonoBehaviour {
 	void Reset()
 	{
 		Time.timeScale = 1f;
-		Application.LoadLevel (Application.LoadLevel);
+		SceneManager.LoadScene (Application.loadedLevel);
 	} 
 
 	public void LoseLife(){
