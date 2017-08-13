@@ -35,13 +35,18 @@ public class GM : MonoBehaviour {
 	public void Setup()
 	{
 		clonePaddle = Instantiate (paddle, transform.position, Quaternion.identity) as GameObject;
-		Instantiate (bricksPrefab, transform.position, Quaternion.identity);
+		/*Cuando Instantiate puede cambiar un poco los valores por lo que regresa Transform
+		  Pero hay que tomar en cuenta que el Instatiate se muestra de la siguiente manera 
+		  Instantiate(GameObjectab,Position,Rotation) Podemos recuperar el valor de la potition de 0,0,0 con 
+		  transform.position y la rotacion del valor 0,0,0 con Quaternion.identity*/
+		Instantiate (bricksPrefab, new Vector3(1.6f,0,-1), Quaternion.identity);
 	}
 
 	void CheckGameOver()
 	{
 		if (bricks < 1) {
 			youWon.SetActive (true);
+
 			Time.timeScale = .25f;
 			Invoke ("Reset", resetDelay);
 		}
@@ -56,15 +61,18 @@ public class GM : MonoBehaviour {
 	void Reset()
 	{
 		Time.timeScale = 1f;
+		//Que hace SceneManager.LoadScena
 		SceneManager.LoadScene (Application.loadedLevel);
 	} 
 
 	public void LoseLife(){
 		lives--;
 		livesText.text = "Lives = " + lives;
-		Instantiate (deathParticicles, clonePaddle.transform.position,Quaternion.identity);
+		Instantiate (deathParticicles, new Vector3(1.6f,0,-1), Quaternion.identity);
 		Destroy (clonePaddle);
+		Destroy (bricksPrefab);
 		Invoke ("SetupPaddle", resetDelay);
+		bricks = 20;
 		CheckGameOver ();
 	}
 
