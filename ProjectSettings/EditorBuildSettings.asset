@@ -8,3 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenas/Prototipo.unity
     guid: dc338b1ab7084443b91b9e3dc1796617
+  - enabled: 1
+    path: Assets/Scenas/Level1.unity
+    guid: ae5af7b87fdaa413c85d8dd3e1e1188a
+  - enabled: 1
+    path: Assets/Scenas/Level2.unity
+    guid: 4a580c969fdbd4520b8da8dc80303589
