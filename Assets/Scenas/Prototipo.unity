@@ -884,7 +884,7 @@ MonoBehaviour:
   livesText: {fileID: 215957446}
   gameOver: {fileID: 1043256428}
   youWon: {fileID: 910336873}
-  paddle: {fileID: 1611323864822724, guid: 60c0eb80551734fbbbcd4a5bfbd77ce2, type: 2}
+  paddle: {fileID: 1347080160418264, guid: 60c0eb80551734fbbbcd4a5bfbd77ce2, type: 2}
   clonePaddle: {fileID: 0}
 --- !u!4 &1122552006
 Transform:
