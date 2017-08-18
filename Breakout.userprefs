@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GM.cs">
     <Files>
-      <File FileName="Assets/Scripts/DeadZone.cs" Line="9" Column="38" />
-      <File FileName="Assets/Scripts/Paddle.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GM.cs" Line="63" Column="13" />
+      <File FileName="Assets/Scripts/DeadZone.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Paddle.cs" Line="10" Column="53" />
       <File FileName="Assets/Scripts/Ball.cs" Line="7" Column="38" />
       <File FileName="Assets/Scripts/Bricks.cs" Line="12" Column="20" />
-      <File FileName="Assets/Scripts/GM.cs" Line="71" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

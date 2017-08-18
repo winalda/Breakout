@@ -9,8 +9,10 @@ public class GM : MonoBehaviour {
 	public int lives = 3;
 	public int bricks = 20;
 	public float resetDelay = 1f;
+	private int level = 0;
 
 	public Text livesText;
+	public Text LevelText;
 
 	public GameObject gameOver;
 	public GameObject youWon;
@@ -41,19 +43,36 @@ public class GM : MonoBehaviour {
 		
 		//Instantiate (bricksPrefab, new Vector3(1.6f,-2,-1), Quaternion.identity);
 		Application.LoadLevelAdditive("Level1");
+		LevelText.text = "Level = " + (level + 1); 
 	}
 
 	void CheckGameOver()
 	{
 		Debug.Log ("Bricks = " + bricks);
 		if (bricks < 1) {
-			//youWon.SetActive (true);
 
-			//youWon.SetActive (false);
+			clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
+			clonePaddle.GetComponent<Paddle> ().ball.SetActive (false);
 			DestroyObject (clonePaddle);
 			Invoke ("SetupPaddle", resetDelay);
 			bricks = 20;
-			Application.LoadLevelAdditive ("Level2");
+
+			if (level == 1) {
+				Application.LoadLevelAdditive ("Level2");
+				lives++;
+				level++;
+			} else if(level == 2){
+				Application.LoadLevelAdditive ("Level3");
+				lives++;
+				level++;
+		    }else{
+				youWon.SetActive (true);
+				Time.timeScale = .25f;
+				Invoke ("Reset", resetDelay);
+			}
+
+			LevelText.text = "Level = " + (level + 1);
+			livesText.text = "Lives = " + lives;
 		}
 
 		if (lives < 1) {
@@ -74,10 +93,8 @@ public class GM : MonoBehaviour {
 		lives--;
 		livesText.text = "Lives = " + lives;
 
-		//Destroy (clonePaddle);
-		//DestroyImmediate(clonePaddle);
-		clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
-		//Invoke ("SetupPaddle", resetDelay);
+		Destroy (clonePaddle);
+		Invoke ("SetupPaddle", resetDelay);
 		CheckGameOver ();
 	}
 
