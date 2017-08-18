@@ -51,10 +51,18 @@ public class GM : MonoBehaviour {
 		Debug.Log ("Bricks = " + bricks);
 		if (bricks < 1) {
 
+<<<<<<< HEAD
 			clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
 			clonePaddle.GetComponent<Paddle> ().ball.SetActive (false);
 			DestroyObject (clonePaddle);
 			Invoke ("SetupPaddle", resetDelay);
+=======
+			//youWon.SetActive (false);
+			//DestroyObject (clonePaddle);
+			//Invoke ("SetupPaddle", resetDelay);
+			//clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
+			clonePaddle.GetComponent<Paddle> ().ball.GetComponent<Rigidbody> ().isKinematic = true;
+>>>>>>> bec154356c307a155833ac4631f2259835992214
 			bricks = 20;
 
 			if (level == 1) {
@@ -94,6 +102,11 @@ public class GM : MonoBehaviour {
 		livesText.text = "Lives = " + lives;
 
 		Destroy (clonePaddle);
+<<<<<<< HEAD
+=======
+		DestroyImmediate(clonePaddle);
+		//clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
+>>>>>>> bec154356c307a155833ac4631f2259835992214
 		Invoke ("SetupPaddle", resetDelay);
 		CheckGameOver ();
 	}
