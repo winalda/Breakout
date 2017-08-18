@@ -50,8 +50,10 @@ public class GM : MonoBehaviour {
 			//youWon.SetActive (true);
 
 			//youWon.SetActive (false);
-			DestroyObject (clonePaddle);
-			Invoke ("SetupPaddle", resetDelay);
+			//DestroyObject (clonePaddle);
+			//Invoke ("SetupPaddle", resetDelay);
+			//clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
+			clonePaddle.GetComponent<Paddle> ().ball.GetComponent<Rigidbody> ().isKinematic = true;
 			bricks = 20;
 			Application.LoadLevelAdditive ("Level2");
 		}
@@ -74,10 +76,10 @@ public class GM : MonoBehaviour {
 		lives--;
 		livesText.text = "Lives = " + lives;
 
-		//Destroy (clonePaddle);
-		//DestroyImmediate(clonePaddle);
-		clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
-		//Invoke ("SetupPaddle", resetDelay);
+		Destroy (clonePaddle);
+		DestroyImmediate(clonePaddle);
+		//clonePaddle.GetComponent<Paddle>().ball.transform.position = new Vector3(0,-3,0);
+		Invoke ("SetupPaddle", resetDelay);
 		CheckGameOver ();
 	}
 
